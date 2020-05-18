@@ -1,4 +1,4 @@
-# Experiment Hub 📈
+# Data Hub 📈
 
 ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -14,10 +14,10 @@ A demo hub where users can experiment with data science by graphing data sets in
 
 ## Features
 
-- [x]User csv upload 
-- [x]Enhanced Plots 
-- [x]Web Monetization enabled 
-- [x]Image download 
+- [x] User csv upload 
+- [x] Enhanced Plots 
+- [x] Web Monetization enabled 
+- [x] Image download 
 
 
 ## Set up
