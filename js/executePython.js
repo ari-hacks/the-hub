@@ -4,7 +4,7 @@ function executePython() {
     languagePluginLoader.then(() => {
         console.log(pyodide.runPython(`import sys\nsys.version`));
         var req = new XMLHttpRequest();
-        req.open("GET", "py/builder.py");
+        req.open("GET", "py/build.py");
         req.addEventListener("load", () => {
             if (req.status != 200) {
                 console.error("Could not load python");
