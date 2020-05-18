@@ -1,24 +1,23 @@
-# Experiment Hub for Data Scientist | Data Enthusiast | Beginners | Learners 🧪🥼
+# Experiment Hub 📈
 
 ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
 
 ## About
 
-A demo hub where users can experiment with data science and share their findings with the community. Some experiments are visible to the public while others can only be seen by browsers with monetization enabled.
+A demo hub where users can experiment with data science by graphing data sets in the browser then downloading them. Web monetized browsers won't see the ads on the page and can also experiment with additional graphing tools.
 
 ### How it works
 
-Users can browse projects or create their own. After viewing a certain amount not all entries show up. When the browser in enabled with web monetization all experiments are visible. 
+<!-- Users can browse projects or create their own. After viewing a certain amount not all entries show up. When the browser in enabled with web monetization all experiments are visible.  -->
 
 
 ## Features
 
-- [ ]User login
-- [ ]User Data Entry
+- [x]User csv upload 
 - [x]Enhanced Plots 
 - [x]Web Monetization enabled 
-- [ ]Add loading spinner while the browser waits for python 
+- [x]Image download 
 
 
 ## Set up
