@@ -1,0 +1,197 @@
+<head>
+    <script src="pyodide.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="js/executePython.js"></script>
+    <script src="js/handlers.js"></script>
+    <meta name="monetization"
+      content="$coil.xrptipbot.com/JABJLDXNSje7h_bY26_6wg">  
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style> 
+    <script>
+      if (document.monetization) {
+        document.monetization.addEventListener('monetizationstart', () => {
+        document.getElementById('exclusive').classList.remove('hidden')
+        document.getElementById('exclusive1').classList.remove('hidden')
+        document.getElementById('exclusive2').classList.remove('hidden')
+        //hide adds 
+        document.getElementById('ad1').remove()
+        document.getElementById('ad2').remove()
+        document.getElementById('ad3').remove()
+        })
+      }
+    </script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css">
+  </head>
+  
+  <body id="reportsPage">
+    <div class="" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <i class="fas fa-3x far fa-chart-bar tm-site-icon"></i>
+                            <h1 class="tm-site-title mb-0">Data Hub</h1>          
+                        </a>
+                        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto"> 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="products.html">Enter Experiment</a>
+                                </li> 
+                            </ul>
+                        </div> -->
+                    </nav>
+                </div>
+            </div>
+    <div id="textfield" class=hidden></div>
+    <script type="text/javascript">
+          console.log('testing outside pyodide')
+          document.addEventListener("DOMContentLoaded", executePython, false);
+          document.addEventListener("DOMContentLoaded", () => {
+          //add a dynamic way to handle this 
+          document.getElementById("input-plot1").onchange = upload_file;
+          document.getElementById("process-plot1").onclick = process ;
+          document.getElementById("clear-plot1").onclick = clear;
+
+          document.getElementById("input-plot2").onchange = upload_file;
+          document.getElementById("process-plot2").onclick = process ;
+          document.getElementById("clear-plot2").onclick = clear;
+
+          document.getElementById("input-plot3").onchange = upload_file;
+          document.getElementById("process-plot3").onclick = process ;
+          document.getElementById("clear-plot3").onclick = clear;
+
+          document.getElementById("input-plot4").onchange = upload_file;
+          document.getElementById("process-plot4").onclick = process ;
+          document.getElementById("clear-plot4").onclick = clear;
+
+          document.getElementById("input-plot5").onchange = upload_file;
+          document.getElementById("process-plot5").onclick = process ;
+          document.getElementById("clear-plot5").onclick = clear;
+
+          document.getElementById("input-plot6").onchange = upload_file;
+          document.getElementById("process-plot6").onclick = process ;
+          document.getElementById("clear-plot6").onclick = clear;
+        }, false);
+    </script>
+        <div class="col-9 font-weight-light">
+          <br>
+          <div class="alert alert-warning" role="alert">
+            This hub uses web monetization, to view add free and access additional graphs web monetization must be enabled.
+            <br>
+            Pyodide takes time to load, please wait for python to load before continuing. 
+          </div>
+            <div id="exclusive" class="hidden">
+              <div class="alert alert-success" role="alert">
+                Web Monetization Enabled!
+              </div>
+            </div>
+              <div class="alert" role="alert" id="load-python"></div>
+          </div>      
+            <!-- row -->
+            <div class="hidden" id="output" class=""></div>
+            <div class="row tm-content-row tm-mt-big">
+                <div class="tm-col tm-col-big">
+                    <div class="bg-white tm-block h-100">
+                        <h2 class="tm-block-title">Pie Chart</h2>
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot1" accept=".xlsx, .xls, .csv">
+                        <button class="btn btn-primary btn-block" name="process" id="process-plot1">Plot it!</button>
+                        <button class="btn btn-primary btn-block" name="clear" id="clear-plot1">Clear</button>
+                        <!-- <div id='plot1'></div> -->
+                        <div id="pyplotdiv"><img id="pyplotfigure"/></div>
+                    </div>
+                </div>
+                <div class="tm-col tm-col-big">
+                    <div class="bg-white tm-block h-100">
+                        <h2 class="tm-block-title">Scatter/Line</h2>
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot2" accept=".xlsx, .xls, .csv">
+                        <button class="btn btn-primary btn-block" name="process" id="process-plot2">Plot it!</button>
+                        <button class="btn btn-primary btn-block" name="clear" id="clear-plot2">Clear</button>
+                        <div id='plot2'></div>
+                    </div>
+                </div>
+                <div id="ad1" class="tm-col tm-col-small">
+                    <div style="width: 300px; height: 250px; background: #428bca; color: #fff; line-height: 250px; text-align: center; " class="tm-block h-100">
+                      <h2 class="tm-block-title"> Advert</h2>
+                    </div>
+                </div>
+
+                <div class="tm-col tm-col-big">
+                    <div class="bg-white tm-block h-100">
+                        <div class="row">
+                            <div class="col-8">
+                                <h2 class="tm-block-title d-inline-block">Time Series</h2>
+                                <input class="btn btn-primary btn-block" type="file" id="input-plot3" accept=".xlsx, .xls, .csv">
+                                <button class="btn btn-primary btn-block" name="process" id="process-plot3">Plot it!</button>
+                                <button class="btn btn-primary btn-block" name="clear" id="clear-plot3">Clear</button>
+                                <div id='plot3'></div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="tm-col tm-col-big">
+                    <div class="bg-white tm-block h-100">
+                        <h2 class="tm-block-title">Relationship maps</h2>
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot4" accept=".xlsx, .xls, .csv">
+                        <button class="btn btn-primary btn-block" name="process" id="process-plot4">Plot it!</button>
+                        <button class="btn btn-primary btn-block" name="clear" id="clear-plot4">Clear</button>
+                        <div id='plot4'></div>
+                    </div>
+                </div>
+                <div id="ad2" class="tm-col tm-col-small">
+                  <div style="width: 300px; height: 250px; background: #428bca; color: #fff; line-height: 250px; text-align: center; " class="tm-block h-100">
+                    <h2 class="tm-block-title"> Advert</h2>
+                  </div>
+                </div>
+                <div id="exclusive1" class="hidden tm-col tm-col-big">
+                  <div class="bg-white tm-block h-100">
+                      <div class="row">
+                          <div class="col-8">
+                              <h2 class="tm-block-title d-inline-block">Geo Maps</h2>
+                              <input class="btn btn-primary btn-block" type="file" id="input-plot5" accept=".xlsx, .xls, .csv">
+                              <button class="btn btn-primary btn-block" name="process" id="process-plot5">Plot it!</button>
+                              <button class="btn btn-primary btn-block" name="clear" id="clear-plot5">Clear</button>
+                              <div id='plot5'></div>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+              <div id="exclusive2" class="hidden tm-col tm-col-big">
+                  <div class="bg-white tm-block h-100">
+                      <h2 class="tm-block-title">3-D</h2>
+                      <input class="btn btn-primary btn-block" type="file" id="input-plot6" accept=".xlsx, .xls, .csv">
+                      <button class="btn btn-primary btn-block" name="process" id="process-plot6">Plot it!</button>
+                      <button class="btn btn-primary btn-block" name="clear" id="clear-plot6">Clear</button>
+                      <div id='plot6'></div>
+                  </div>
+              </div>
+              <div id="ad3" class="tm-col tm-col-small">
+                <div style="width: 300px; height: 250px; background: #428bca; color: #fff; line-height: 250px; text-align: center; " class="tm-block h-100">
+                  <h2 class="tm-block-title"> Advert</h2>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/moment.min.js"></script>
+    <!-- https://momentjs.com/ -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
