@@ -1,5 +1,3 @@
-
-//Function that takes the main python file and loads it to execute via pyodide
 function executePython() {
     languagePluginLoader.then(() => {
         console.log(pyodide.runPython(`import sys\nsys.version`));

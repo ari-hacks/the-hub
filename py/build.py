@@ -2,13 +2,8 @@ from js import document, Plotly,console
 import logging
 import pandas as pd
 import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
 import csv
 import sys
-import matplotlib.pyplot as plt
-import io, base64
-
 
 logging.basicConfig(level=logging.INFO)
 
@@ -16,34 +11,14 @@ def load():
     document.getElementById('load-python').classList.add('alert-success')
     document.getElementById('load-python').innerHTML = 'Python Loaded'
 
-def process_scatter():
-    print('executed scatter plot')
-    
-def process_pie():
-    print('executed pie plot')
-
-    
-def process_time_series():
-    print('executed time plot')
-
-def process_relationship_map():
-     print('executed relationship plot')
-
-
-def process_geo_maps():
-    print('executed geo plot')
-
-    
-def process_3d_maps():
-     print('executed 3d plot')
-
-    
-    
-def process_upload():
-    #based on button id call correct method of plotting
+def process_input():
+    """
+    Get data and set the header - return array 
+    """
     rows = []
     file_data = document.getElementById("output").textContent
-    console.log(file_data)  
+    console.log(file_data) 
+     
     csv_reader = csv.reader(file_data.splitlines())
     for row in csv_reader:
         print(row)
@@ -53,48 +28,237 @@ def process_upload():
     set_header = df.iloc[0] 
     df = df[1:] 
     df.columns = set_header
-    #df=df.astype(float)
-    #need logic to check if any values are words and if not convert to numbers 
-    df.num_children=pd.to_numeric(df.num_children)
-    df.num_pets=pd.to_numeric(df.num_pets)
     print(df)
-    pets = df[df.columns[5]].values
-    children = df[df.columns[4]].values
-    print(children)
+    return df 
     
+def process_scatter():
+    df = process_input()
+    col1 = df[df.columns[0]].values
+    col2 = df[df.columns[1]].values
+ 
+    Plotly.plot(document.getElementById('plot2'),
+            [{'x':col1, 'y': col2,
+            'type': 'scatter',
+            'mode': 'markers+lines',
+            'hoverinfo': 'label',
+            'label': 'Zoom Background Interest'
+            }])
+
+def process_pie():
+    print('executed pie plot')
+    rows = []
+    file_data = document.getElementById("output").textContent
+    console.log(file_data) 
+     
+    csv_reader = csv.reader(file_data.splitlines())
+    for row in csv_reader:
+        print(row)
+        rows.append(row)
+        
+    df = pd.DataFrame(data=rows)
+    set_header = df.iloc[0] 
+    df = df[1:] 
+    df.columns = set_header
+    df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
+    df[df.columns[2]] =pd.to_numeric(df[df.columns[2]])
+    df[df.columns[3]] =pd.to_numeric(df[df.columns[3]])
+    col1 = df[df.columns[1]].values
+    col2 = df[df.columns[2]].values
+    col3 = df[df.columns[3]].values
+  
     Plotly.plot(document.getElementById('plot1'),
-            [{'x':children, 'y':[20,2,3,2],
-            'labels': ['t1','t2'],
-            'type': 'pie',
-            'name': 'Starry Night',
-            'hoverinfo': 'label+percent+name',
-            'textinfo': 'none'}],
-              {
-         'title': 'Title of the Graph',
-          'xaxis': {
-             'title': df[df.columns[4]].name,
-             'label' : 'children'
-             },
-         'yaxis': {
-             'title': df[df.columns[5]].name
-          }
-         }
-             )
-    # Plotly.newPlot(document.getElementById('plot1'),
-    # data = [{'x':[1, 2, 3, 4, 5], 'y':[10, 20, 30, 20, 10], 'type':'scatter',
-    #          'mode':'markers', 'marker':{'size':20}
-    #         }],
-    # layout = {'hovermode':'closest',
-    #           'title':'Click on Points'
-    #  })
+            [{
+            'values': [df[df.columns[1]].sum(),df[df.columns[2]].sum(),df[df.columns[3]].sum()],
+            'labels':[df[df.columns[1]].name,df[df.columns[2]].name,df[df.columns[3]].name],
+            'type': 'pie'
+            }],
+            {'title': 'Basic Pie Chart'})
+            # {  'height': 400,'width': 500})
     
-    # fig,ax = plt.subplots()
-    # ax.plot(df.num_children,df.num_pets)
-    # buf = io.BytesIO()
-    # fig.savefig(buf, format='png')
-    # buf.seek(0)
-    # img_str = 'data:image/png;base64,' + base64.b64encode(buf.read()).decode('UTF-8')
-          
+ 
+def process_time_series():
+    print('executed time plot')
+    rows = []
+    file_data = document.getElementById("output").textContent
+    console.log(file_data) 
+     
+    csv_reader = csv.reader(file_data.splitlines())
+    for row in csv_reader:
+        print(row)
+        rows.append(row)
+        
+    df = pd.DataFrame(data=rows)
+    set_header = df.iloc[0] 
+    df = df[1:] 
+    df.columns = set_header
+    print(df)
+   
+    df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
+    df[df.columns[2]] =pd.to_numeric(df[df.columns[2]])
+    df[df.columns[3]] =pd.to_numeric(df[df.columns[3]])
+    
+    col1 = df[df.columns[0]].values
+    col2 = df[df.columns[1]].values
+    col3 = df[df.columns[2]].values
+    col4 = df[df.columns[3]].values
+    
+    Plotly.plot(document.getElementById('plot3'),
+        [{
+            'x':col1 ,
+            'y':col2, 
+            'type': 'scatter',
+            'mode': "lines",
+            'name': 'Pho',
+            'line': {'color': '#17BECF'}
+            },
+             {
+            'x':col1,
+            'y':col3, 
+            'type': "scatter",
+            'mode': "lines",
+            'name': 'Ramen',
+            'line': {'color': '#7F7F7F'}
+            },
+              {
+            'x': col1,
+            'y': col4, 
+            'type': "scatter",
+            'mode': "lines",
+            'name': 'Soba',
+            'line': {'color': '#7C19E2'}
+        }])
+
+    
+
+def process_geo_map():
+    print('executed geo plot')
+    rows = []
+    file_data = document.getElementById("output").textContent
+    console.log(file_data) 
+     
+    csv_reader = csv.reader(file_data.splitlines())
+    for row in csv_reader:
+        print(row)
+        rows.append(row)
+        
+    df = pd.DataFrame(data=rows)
+    set_header = df.iloc[0] 
+    df = df[1:] 
+    df.columns = set_header
+    print(df)
+   
+    df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
+    df[df.columns[2]] =pd.to_numeric(df[df.columns[2]])
+    
+    col1 = df[df.columns[1]].values
+    col2 = df[df.columns[2]].values
+    col3 = df[df.columns[13]].values
+    Plotly.plot(document.getElementById('plot4'),
+     [{
+    'type': 'scattergeo',
+    'lon' : col2,
+    'lat': col1,
+    'text' : col3}] )
+
+
+
+def process_heat_maps():
+    print('executed geo plot')
+    rows = []
+    file_data = document.getElementById("output").textContent
+    console.log(file_data) 
+     
+    csv_reader = csv.reader(file_data.splitlines())
+    for row in csv_reader:
+        print(row)
+        rows.append(row)
+        
+    df = pd.DataFrame(data=rows)
+    set_header = df.iloc[0] 
+    df = df[1:] 
+    df.columns = set_header
+    print(df)
+    
+    df[df.columns[0]] =pd.to_numeric(df[df.columns[0]])
+    df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
+    df[df.columns[2]] =pd.to_numeric(df[df.columns[2]])
+    
+    col0 = df[df.columns[0]].values
+    col1 = df[df.columns[1]].values
+    col2 = df[df.columns[2]].values
+    col3 = df[df.columns[3]].values
+    col4 = df[df.columns[4]].values
+
+    Plotly.plot(document.getElementById('plot5'),
+     [{ 'z': [col0, col1, col2],
+        'x': col3,
+        'y': col4,
+        'type': 'heatmap',
+        'hoverongaps': 'false'
+            }],
+            {'title': 'Basic Heat Map'})
+
+ 
+
+def process_3d_maps():
+    print('executed 3d plot')
+    rows = []
+    file_data = document.getElementById("output").textContent
+    console.log(file_data) 
+     
+    csv_reader = csv.reader(file_data.splitlines())
+    for row in csv_reader:
+        print(row)
+        rows.append(row)
+        
+    df = pd.DataFrame(data=rows)
+    set_header = df.iloc[0] 
+    df = df[1:] 
+    df.columns = set_header
+    print(df)
+
+    col0 = df[df.columns[0]].values
+    col1 = df[df.columns[1]].values
+    col2 = df[df.columns[2]].values
+    col3 = df[df.columns[3]].values
+    col4 = df[df.columns[4]].values
+    col5= df[df.columns[5]].values
+     
+    Plotly.plot(document.getElementById('plot6'),
+        [ {
+	    'x':col0,
+        'y':col1 ,
+        'z': col2,
+	    'mode': 'markers',
+	    'marker': {
+		    'size': 12,
+		    'line': {
+		    'color': 'rgba(217, 217, 217, 0.14)',
+		    'width': 0.5},
+		    'opacity': 0.8},
+	    'type': 'scatter3d'
+        },
+         {
+	'x':col3,
+    'y': col4,
+    'z': col5,
+	'mode': 'markers',
+	'marker': {
+		'color': 'rgb(127, 127, 127)',
+		'size': 12,
+		'symbol': 'circle',
+		'line': {
+		'color': 'rgb(204, 204, 204)',
+		'width': 1},
+		'opacity': 0.8},
+	'type': 'scatter3d'}],
+        {'margin': {
+	    'l': 0,
+	    'r': 0,
+	    'b': 0,
+	    't': 0}})
+
+      
 def run():
     load()
     

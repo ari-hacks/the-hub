@@ -14,11 +14,11 @@ function process(ev) {
     } else if (ev.target.id.includes('plot2')) {
         pyodide.runPython(`process_scatter()`);
     } else if (ev.target.id.includes('plot3')) {
-        pyodide.runPython(`process_time_series()`);
+        pyodide.runPythonAsync(`process_time_series()`);
     } else if (ev.target.id.includes('plot4')) {
-        pyodide.runPython(`process_relationship_map()`);
+        pyodide.runPython(`process_geo_map()`);
     } else if (ev.target.id.includes('plot5')) {
-        pyodide.runPython(`process_geo_maps()`);
+        pyodide.runPython(`process_heat_maps()`);
     } else if (ev.target.id.includes('plot6')) {
         pyodide.runPython(`process_3d_maps()`);
     } else {
