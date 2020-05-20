@@ -53,7 +53,7 @@ After the above requirements have been met:
 
     ```bash
     ➜ pipenv shell
-    ➜ pipenv install -r requirements.txt
+    ➜ pipenv install
     ```
 3.  Run the server
 
