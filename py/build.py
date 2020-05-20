@@ -60,8 +60,7 @@ def process_pie():
             'labels':[df[df.columns[1]].name,df[df.columns[2]].name,df[df.columns[3]].name],
             'type': 'pie'
             }],
-            {'title': 'Basic Pie Chart'})
-            # {  'height': 400,'width': 500})
+            {  'height': 350,'width': 500})
     
  
 def process_time_series():
@@ -112,14 +111,13 @@ def process_geo_map():
     
     col1 = df[df.columns[1]].values
     col2 = df[df.columns[2]].values
-    col3 = df[df.columns[13]].values
+    col3 = df[df.columns[3]].values
     Plotly.plot(document.getElementById('plot4'),
      [{
     'type': 'scattergeo',
     'lon' : col2,
     'lat': col1,
     'text' : col3}] )
-
 
 
 def process_heat_maps():
@@ -141,10 +139,8 @@ def process_heat_maps():
         'y': col4,
         'type': 'heatmap',
         'hoverongaps': 'false'
-            }],
-            {'title': 'Basic Heat Map'})
+            }])
 
- 
 
 def process_3d_maps():
     df = process_input()

@@ -31,6 +31,7 @@ Plot | Input File
 ### Requirements
 
 - [Python](https://www.python.org/) 3.7
+- Pipenv
 - Browser with [coil wallet (No Sign in required for testing)](https://chrome.google.com/webstore/detail/coil/locbifcbeldmnphbgkdigjmkbfkhbnca?hl=en) 
 - [Pyodide Downloaded](https://github.com/iodide-project/pyodide/releases)
 - [Bookmarklet : For testing coil without an account](https://testwebmonetization.com/)
@@ -45,13 +46,19 @@ After the above requirements have been met:
 1.  Clone this repository and `cd` into it
 
     ```bash
-    git clone https://github.com/ari-hacks/the-hub.git
-    cd the-hub
+    ➜ git clone https://github.com/ari-hacks/the-hub.git
+    ➜ cd the-hub
     ```
-2.  Run the server
+2.  Dependencies 
 
     ```bash
-    python3 server.py
+    ➜ pipenv shell
+    ➜ pipenv install -r requirements.txt
+    ```
+3.  Run the server
+
+    ```bash
+    ➜ python3 server.py
     #navigate to http://127.0.0.1:8000/
     ```
 

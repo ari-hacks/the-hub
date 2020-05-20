@@ -93,7 +93,7 @@
           <div class="alert alert-warning" role="alert">
             This hub uses web monetization, to view add free and access additional graphs web monetization must be enabled.
             <br>
-            Pyodide takes time to load, please wait for python to load before continuing. 
+            Please Note: Pyodide must load before graphing can start
           </div>
             <div id="exclusive" class="hidden">
               <div class="alert alert-success" role="alert">
@@ -108,9 +108,9 @@
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">Pie Chart
-                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 3 column data sets (date,comparison1,comparison2,comparison3)" alt="info">
                         </h2>
-                        <input class="btn btn-primary btn-block" type="file" id="input-plot1" accept=".xlsx, .xls, .csv">
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot1" accept=".csv">
                         <button class="btn btn-primary btn-block" name="process" id="process-plot1">Plot it!</button>
                         <button class="btn btn-primary btn-block" name="clear" id="clear-plot1">Clear</button>
                         <div id='plot1'></div>
@@ -120,9 +120,9 @@
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">Scatter/Line
-                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 2 column data sets (date,data set)" alt="info">
                         </h2>
-                        <input class="btn btn-primary btn-block" type="file" id="input-plot2" accept=".xlsx, .xls, .csv">
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot2" accept=".csv">
                         <button class="btn btn-primary btn-block" name="process" id="process-plot2">Plot it!</button>
                         <button class="btn btn-primary btn-block" name="clear" id="clear-plot2">Clear</button>
                         <div id='plot2'></div>
@@ -137,9 +137,9 @@
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
                                 <h2 class="tm-block-title d-inline-block">Time Series
-                                  <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                                  <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 3 column data sets (date,comparison1,comparison2,comparison3)"  alt="info">
                                 </h2>
-                                <input class="btn btn-primary btn-block" type="file" id="input-plot3" accept=".xlsx, .xls, .csv">
+                                <input class="btn btn-primary btn-block" type="file" id="input-plot3" accept=".csv">
                                 <button class="btn btn-primary btn-block" name="process" id="process-plot3">Plot it!</button>
                                 <button class="btn btn-primary btn-block" name="clear" id="clear-plot3">Clear</button>
                                 <div id='plot3'></div>
@@ -148,9 +148,9 @@
                 <div class="tm-col tm-col-big">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">Geo Map
-                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                          <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 4 column data sets (date,lat,long,place name)" alt="info">
                         </h2>
-                        <input class="btn btn-primary btn-block" type="file" id="input-plot4" accept=".xlsx, .xls, .csv">
+                        <input class="btn btn-primary btn-block" type="file" id="input-plot4" accept=".csv">
                         <button class="btn btn-primary btn-block" name="process" id="process-plot4">Plot it!</button>
                         <button class="btn btn-primary btn-block" name="clear" id="clear-plot4">Clear</button>
                         <div id='plot4'></div>
@@ -164,9 +164,9 @@
                 <div id="exclusive1" class="hidden tm-col tm-col-big">
                   <div class="bg-white tm-block h-100">
                               <h2 class="tm-block-title d-inline-block">Heat Map
-                                <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                                <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 5 column data sets (z1,z2,z3,x,y)"  alt="info">
                               </h2>
-                              <input class="btn btn-primary btn-block" type="file" id="input-plot5" accept=".xlsx, .xls, .csv">
+                              <input class="btn btn-primary btn-block" type="file" id="input-plot5" accept=".csv">
                               <button class="btn btn-primary btn-block" name="process" id="process-plot5">Plot it!</button>
                               <button class="btn btn-primary btn-block" name="clear" id="clear-plot5">Clear</button>
                               <div id='plot5'></div>
@@ -175,9 +175,9 @@
               <div id="exclusive2" class="hidden tm-col tm-col-big">
                   <div class="bg-white tm-block h-100">
                       <h2 class="tm-block-title">3-D
-                        <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="info">
+                        <img src="img/info.png" style="width:20px;height:20px;" data-toggle="tooltip" data-placement="top" title="Input takes csv in 6 column data sets (x1,y1,z1,x2,y2,z2)" alt="info">
                       </h2>
-                      <input class="btn btn-primary btn-block" type="file" id="input-plot6" accept=".xlsx, .xls, .csv">
+                      <input class="btn btn-primary btn-block" type="file" id="input-plot6" accept=".csv">
                       <button class="btn btn-primary btn-block" name="process" id="process-plot6">Plot it!</button>
                       <button class="btn btn-primary btn-block" name="clear" id="clear-plot6">Clear</button>
                       <div id='plot6'></div>
