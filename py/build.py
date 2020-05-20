@@ -17,18 +17,18 @@ def process_input():
     """
     rows = []
     file_data = document.getElementById("output").textContent
-    console.log(file_data) 
+    logging.info(file_data) 
      
     csv_reader = csv.reader(file_data.splitlines())
     for row in csv_reader:
-        print(row)
+        logging.info(row)
         rows.append(row)
         
     df = pd.DataFrame(data=rows)
     set_header = df.iloc[0] 
     df = df[1:] 
     df.columns = set_header
-    print(df)
+    logging.info(df)
     return df 
     
 def process_scatter():
@@ -45,7 +45,6 @@ def process_scatter():
             }])
 
 def process_pie():
-    print('executed pie plot')
     df = process_input()
     
     df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
@@ -66,7 +65,6 @@ def process_pie():
     
  
 def process_time_series():
-    print('executed time plot')
     df = process_input()
    
     df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
@@ -107,7 +105,6 @@ def process_time_series():
     
 
 def process_geo_map():
-    print('executed geo plot')
     df = process_input()
    
     df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
@@ -126,8 +123,7 @@ def process_geo_map():
 
 
 def process_heat_maps():
-    print('executed geo plot')
-    rdf = process_input()
+    df = process_input()
     
     df[df.columns[0]] =pd.to_numeric(df[df.columns[0]])
     df[df.columns[1]] =pd.to_numeric(df[df.columns[1]])
@@ -151,7 +147,6 @@ def process_heat_maps():
  
 
 def process_3d_maps():
-    print('executed 3d plot')
     df = process_input()
 
     col0 = df[df.columns[0]].values
