@@ -22,7 +22,7 @@ Plot | Input File
  Pie | [Comparison of trending operating systems](/data/os-comparison.csv) | 
  Scatter/Line | [Trends of funny zoom backgrounds](/data/zoom-backgrounds.csv) | 
  Time Series | [Comparison of trending noodles](/data/Pho%20vs%20Ramen%20vs%20Soba.csv) | 
- Geo Map | [International certain earthquake data](/data/earthquake-data.csv) | 
+ Geo Map | [International earthquake data](/data/earthquake-data.csv) | 
  Heat Map | [Random Data Set](/data/heatmap-dataset%20-%20Sheet1.csv) | 
  3-D | [Random Data set](/data/plotly-dataset.csv) 
 
