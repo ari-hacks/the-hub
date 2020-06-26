@@ -7,6 +7,9 @@
 
 A demo hub where users can experiment with data science by graphing data sets in the browser then downloading them. Web Monetized browsers won't see the ads on the page and can also experiment with additional graphing tools.
 
+## This Project is a Grant For the Web x DEV Hackathon Runner-Up Winner  🏆🎉 
+
+[Blog Post](https://dev.to/ari_hacks/python-in-the-browser-a-web-monetization-x-web-assembly-experiment-32c1) 
 
 ## Features
 
@@ -61,7 +64,7 @@ After the above requirements have been met:
     ➜ python3 server.py
     #navigate to http://127.0.0.1:8000/
     ```
-
+ 
 ## License
 
 [MIT](http://www.opensource.org/licenses/mit-license.html)
