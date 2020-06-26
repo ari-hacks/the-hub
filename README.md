@@ -9,7 +9,7 @@ A demo hub where users can experiment with data science by graphing data sets in
 
 ## This Project is a Grant For the Web x DEV Hackathon Runner-Up Winner  🏆🎉 
 
-[Blog Post](https://dev.to/ari_hacks/python-in-the-browser-a-web-monetization-x-web-assembly-experiment-32c1) 
+✍️ [Blog Post](https://dev.to/ari_hacks/python-in-the-browser-a-web-monetization-x-web-assembly-experiment-32c1) 
 
 ## Features
 
