@@ -7,7 +7,6 @@ import logging
 Server setup
 Enables CORS, Fix for WASM MIME  Type for older Python versions 
 """
-logging.basicConfig(level=logging.INFO)
 
 class Handler(SimpleHTTPRequestHandler):
 
