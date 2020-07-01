@@ -61,7 +61,4 @@ function clear(ev) {
         pyodide.runPython(`print(no graph selected!)`);
     }
 
-
-
-
 }
