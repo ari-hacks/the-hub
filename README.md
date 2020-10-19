@@ -36,7 +36,7 @@ Plot | Input File
 - [Python](https://www.python.org/) 3.7
 - Pipenv
 - Browser with [coil wallet (No Sign in required for testing)](https://chrome.google.com/webstore/detail/coil/locbifcbeldmnphbgkdigjmkbfkhbnca?hl=en) 
-- [Pyodide Downloaded](https://github.com/iodide-project/pyodide/releases)
+- ~~[Get Latest Pyodide Downloaded (pyodide.js)](https://github.com/iodide-project/pyodide/releases)~~ Using CDN
 - [Bookmarklet : For testing coil without an account](https://testwebmonetization.com/)
   
 
@@ -53,11 +53,16 @@ After the above requirements have been met:
     ➜ cd the-hub
     ```
 2.  Dependencies 
+    ```bash 
+    #updating pipenv
+    ➜ pip install pipenv --upgrade
+    ```
 
     ```bash
     ➜ pipenv shell
     ➜ pipenv install
     ```
+ 
 3.  Run the server
 
     ```bash

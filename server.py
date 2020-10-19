@@ -2,6 +2,8 @@ import sys
 import socketserver
 from http.server import SimpleHTTPRequestHandler
 import logging
+import settings
+
 
 """
 Server setup
@@ -20,9 +22,9 @@ if sys.version_info < (3, 7, 5):
     Handler.extensions_map['.wasm'] = 'application/wasm'
 
 def run():
-    port = 8000
+    port = int(settings.PORT)
     with socketserver.TCPServer(("", port), Handler) as httpd:
-        print("Serving at: http://127.0.0.1:{}".format(port))
+        print("Serving at: {}".format(port))
         httpd.serve_forever()
 
 if __name__ == '__main__':
