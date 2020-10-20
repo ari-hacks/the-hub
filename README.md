@@ -70,6 +70,3 @@ After the above requirements have been met:
     #navigate to http://127.0.0.1:8000/
     ```
  
-## License
-
-[MIT](http://www.opensource.org/licenses/mit-license.html)
